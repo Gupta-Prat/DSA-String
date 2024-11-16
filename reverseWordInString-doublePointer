@@ -1,0 +1,53 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+//Method-1 Program to reverse the word in string in such cases where there will be no trail and last spaces there.
+#include <iostream>
+#include <string>
+using namespace std;
+void reverseString(string& str, int s, int e)
+{
+    while(s < e)
+    {
+        char temp;
+
+        temp = str[s];
+        str[s] = str[e];
+        str[e] = temp;
+        s++;
+        e--;
+    }
+}
+int main()
+{
+    string str = "  world hello  ";
+    int i,j =0, s = 0, e, len;
+    e = (str.size()) - 1;
+    reverseString(str, s, e);
+    len = ((str.size()) - 1);
+
+    while(i < len)
+    {
+      s = i;
+      e = 0;
+      while((str[i] != ' ') && (str[i] != '\0'))
+      {
+          str[j] = str[i];
+          i++;
+          j++;
+      }
+      e = i;
+      reverseString(str, s, e-1);
+      str[j] = ' ';
+      i++;
+      j++;
+    }
+    cout << "string after reverse" << endl;
+    cout << str << endl;
+    return 0;
+}
