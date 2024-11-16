@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+//reverse words in string using stringstream object.
+
+class Solution {
+public:
+    string reverseWords(string s) {
+        int l = s.size(), len;
+
+        stringstream ss(s);
+        string portion = "";
+        string result = "";
+
+        while(ss >> portion)
+        {
+            result = portion + " " + result;
+        }
+        len = result.size();
+        while(result[len - 1] == ' ')
+        {
+            result = result.substr(0, l);
+            l--;
+        }
+        return result;
+    }
+};
