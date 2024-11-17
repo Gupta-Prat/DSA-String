@@ -1,0 +1,44 @@
+
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+void maxOccurenceChar(vector<int> v)
+{
+    //maxOccurenceChar(arr, wordLen);
+    int max = -1, index1 = 0, ans;
+    for(index1 = 0; index1 < 26; index1++)
+    {
+      if(max < v[index1])
+      {
+          ans = index1;
+          max = v[index1];
+      }
+    }
+    
+    printf("value of index = %d\n", v[ans]);
+    printf("max freq character = %c", (ans + 'a'));
+}
+
+int main()
+{
+    string str = "Sajjjjjjjjjjana";
+    int i, index;
+    vector<int> v(26, 0);
+    int wordLen = str.size(); 
+    for(i = 0; (str[i] != '\0'); i++)
+    {
+        index = str[i] - 'a';
+        v[index]++;
+    }
+    maxOccurenceChar(v);
+}
